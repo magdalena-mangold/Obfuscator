@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Obfuscator.Properties
-{
-
-
+namespace Obfuscator.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -19,52 +19,129 @@ namespace Obfuscator.Properties
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute( "System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0" )]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    public class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute( "Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode" )]
-        internal Resources()
-        {
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
-        [global::System.ComponentModel.EditorBrowsableAttribute( global::System.ComponentModel.EditorBrowsableState.Advanced )]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if( (resourceMan == null) )
-                {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager( "Obfuscator.Properties.Resources", typeof( Resources ).Assembly );
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        public static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Obfuscator.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
-        [global::System.ComponentModel.EditorBrowsableAttribute( global::System.ComponentModel.EditorBrowsableState.Advanced )]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        public static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;c
+        ///&apos;d
+        ///&apos;em
+        ///&apos;ll
+        ///&apos;m
+        ///&apos;mid
+        ///&apos;midst
+        ///&apos;mongst
+        ///&apos;prentice
+        ///&apos;re
+        ///&apos;s
+        ///&apos;sblood
+        ///&apos;sbodikins
+        ///&apos;sdeath
+        ///&apos;sfoot
+        ///&apos;sheart
+        ///&apos;shun
+        ///&apos;slid
+        ///&apos;slife
+        ///&apos;slight
+        ///&apos;snails
+        ///&apos;strewth
+        ///&apos;t
+        ///&apos;til
+        ///&apos;tis
+        ///&apos;twas
+        ///&apos;tween
+        ///&apos;twere
+        ///&apos;twill
+        ///&apos;twixt
+        ///&apos;twould
+        ///&apos;un
+        ///&apos;ve
+        ///1080
+        ///10th
+        ///1st
+        ///2
+        ///2nd
+        ///3rd
+        ///4th
+        ///5th
+        ///6th
+        ///7th
+        ///8th
+        ///9th
+        ///a
+        ///a&apos;
+        ///a&apos;s
+        ///a/c
+        ///a1
+        ///aa
+        ///aaa
+        ///aah
+        ///aahed
+        ///aahing
+        ///aahs
+        ///aal
+        ///aalii
+        ///aaliis
+        ///aals
+        ///aam
+        ///aardvark
+        ///aardvarks
+        ///aardwolf
+        ///aardwolves
+        ///aargh
+        ///aaron
+        ///aaronic
+        ///aarrgh
+        ///aarrghh
+        ///aas
+        ///aasvogel
+        ///aasvogels
+        ///ab
+        ///aba
+        ///abac
+        ///abaca [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Words {
+            get {
+                return ResourceManager.GetString("Words", resourceCulture);
             }
         }
     }

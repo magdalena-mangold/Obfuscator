@@ -76,7 +76,7 @@ namespace Obfuscator.Layout
 
         public void ChangeNamesToRandomWords(AssemblyDefinition assemblyDefinition)
         {
-            nameBuilder = new NameBuilder("Words.txt");
+            nameBuilder = new NameBuilder();
             reportManager.AddLine( "Start - Changing Names..." );
             foreach( var moduleDefinition in assemblyDefinition.Modules )
             {

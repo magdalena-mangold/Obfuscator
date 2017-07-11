@@ -16,3 +16,21 @@ D:\Visual Projects\Obfuscator\Obfuscator\obj\Debug\Obfuscator.Properties.Resourc
 D:\Visual Projects\Obfuscator\Obfuscator\obj\Debug\Obfuscator.csproj.GenerateResource.Cache
 D:\Visual Projects\Obfuscator\Obfuscator\obj\Debug\Obfuscator.exe
 D:\Visual Projects\Obfuscator\Obfuscator\obj\Debug\Obfuscator.pdb
+D:\Git-Projects\Obfuscator\Obfuscator\bin\Debug\Obfuscator.exe.config
+D:\Git-Projects\Obfuscator\Obfuscator\obj\Debug\Obfuscator.exe
+D:\Git-Projects\Obfuscator\Obfuscator\obj\Debug\Obfuscator.pdb
+D:\Git-Projects\Obfuscator\Obfuscator\bin\Debug\Obfuscator.exe
+D:\Git-Projects\Obfuscator\Obfuscator\bin\Debug\Obfuscator.pdb
+D:\Git-Projects\Obfuscator\Obfuscator\bin\Debug\Mono.Cecil.dll
+D:\Git-Projects\Obfuscator\Obfuscator\bin\Debug\Mono.Cecil.Mdb.dll
+D:\Git-Projects\Obfuscator\Obfuscator\bin\Debug\Mono.Cecil.Pdb.dll
+D:\Git-Projects\Obfuscator\Obfuscator\bin\Debug\Mono.Cecil.Rocks.dll
+D:\Git-Projects\Obfuscator\Obfuscator\obj\Debug\Obfuscator.csprojResolveAssemblyReference.cache
+D:\Git-Projects\Obfuscator\Obfuscator\obj\Debug\MainWindow.g.cs
+D:\Git-Projects\Obfuscator\Obfuscator\obj\Debug\App.g.cs
+D:\Git-Projects\Obfuscator\Obfuscator\obj\Debug\Obfuscator_MarkupCompile.cache
+D:\Git-Projects\Obfuscator\Obfuscator\obj\Debug\Obfuscator_MarkupCompile.lref
+D:\Git-Projects\Obfuscator\Obfuscator\obj\Debug\MainWindow.baml
+D:\Git-Projects\Obfuscator\Obfuscator\obj\Debug\Obfuscator.g.resources
+D:\Git-Projects\Obfuscator\Obfuscator\obj\Debug\Obfuscator.Properties.Resources.resources
+D:\Git-Projects\Obfuscator\Obfuscator\obj\Debug\Obfuscator.csproj.GenerateResource.Cache

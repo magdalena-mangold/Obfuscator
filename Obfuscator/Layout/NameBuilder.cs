@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Obfuscator.Layout
 {
@@ -14,25 +13,21 @@ namespace Obfuscator.Layout
         List<string> names;
         List<string> chosenWords;
 
-        public NameBuilder(string fileName)
+        public NameBuilder()
         {
             randomWord = new Random();
             names = new List<string>();
-            names = ReadWords( fileName );
+            names = ReadWords();
             chosenWords = new List<string>();
         }
 
-        public List<string> ReadWords( string fileName )
+        public List<string> ReadWords()
         {
             List<string> names = new List<string>();
-            using( StreamReader str = new StreamReader( fileName ) )
-            {
-                string line;
-                while( (line = str.ReadLine()) != null )
-                {
-                    names.Add( line );
-                }
-            }
+
+            string resource_data = Properties.Resources.Words;
+            names = resource_data.Split( new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries ).ToList();
+
             return names;
         }
         //needs checking
