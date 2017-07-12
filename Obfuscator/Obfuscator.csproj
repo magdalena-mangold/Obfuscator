@@ -72,6 +72,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\StringObfuscation\StringGetter.cs" />
     <Compile Include="Layout\HideNames.cs" />
     <Compile Include="Layout\NameBuilder.cs" />
     <Compile Include="Layout\NameObfuscation.cs" />
@@ -126,9 +127,7 @@
   <ItemGroup>
     <Resource Include="Resources\Words.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

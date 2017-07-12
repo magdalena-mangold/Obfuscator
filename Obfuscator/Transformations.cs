@@ -13,6 +13,9 @@ namespace Obfuscator
         ProfileHard,
         HideNames,
         RandomStrings,
-        RandomWords
+        RandomWords,
+        StringSplit,
+        StringSimpleEncryption,
+        ArraySplit
     };
 }
