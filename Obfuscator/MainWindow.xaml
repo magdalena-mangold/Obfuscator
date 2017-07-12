@@ -82,12 +82,8 @@
 
 
             </TabItem>
-            <TabItem Header="Data Transformations" Width="136" Margin="0">
-                <ListBox x:Name="dataOptions" HorizontalAlignment="Left" Height="22" Margin="73,13,0,0" VerticalAlignment="Top" Width="100"/>
-            </TabItem>
-            <TabItem Header="Control Transformations" Margin="0,-2,0,0" Height="22" VerticalAlignment="Bottom">
-                <ListBox x:Name="controlOptions" HorizontalAlignment="Left" Height="22" Margin="87,12,0,0" VerticalAlignment="Top" Width="100"/>
-            </TabItem>
+            <TabItem Header="Data Transformations" Width="136" Margin="0"/>
+            <TabItem Header="Control Transformations" Margin="0,-2,0,0" Height="22" VerticalAlignment="Bottom"/>
         </TabControl>
 
     </Grid>

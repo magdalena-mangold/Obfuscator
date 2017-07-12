@@ -86,11 +86,11 @@ namespace Obfuscator.Managing
         }
 
         
-        public void SearchSettings( ListBox layoutOptions, ListBox dataOptions, ListBox controlOptions )
+        public void SearchSettings( ListBox layoutOptions)
         {
             CheckLayoutOptions(layoutOptions);
-            CheckDataOptions(dataOptions);
-            CheckControlOptions(controlOptions);
+            //CheckDataOptions(dataOptions);
+            //CheckControlOptions(controlOptions);
         }
     }
 }
