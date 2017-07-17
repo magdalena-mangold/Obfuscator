@@ -39,6 +39,7 @@ namespace Obfuscator.Managing
                     {
                         case "profileRadioEasy":
                             ObfuscationsToDo.Add( Transformations.ProfileEasy );
+                            ObfuscationsToDo.Add( Transformations.StringSplit );
                             break;
                         case "profileRadioMedium":
 

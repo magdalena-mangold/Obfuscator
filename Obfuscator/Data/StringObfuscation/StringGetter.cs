@@ -1,4 +1,5 @@
-﻿using Mono.Cecil.Cil;
+﻿using Mono.Cecil;
+using Mono.Cecil.Cil;
 using Obfuscator.Managing;
 using System;
 using System.Collections.Generic;
@@ -32,10 +33,68 @@ namespace Obfuscator.Data.StringObfuscation
             set { instructionsToRemove = value; }
         }
 
-        public StringGetter()
+        public StringGetter(ReportManager reportManager)
         {
-
+            this.reportManager = reportManager;
+            strs = new List<string>();
+            stList = new List<List<string>>();
+            instructionsToRemove = new List<List<Instruction>>();
         }
 
+        public List<string> FindString( AssemblyDefinition assembly )
+        {
+            //List<string> strs = new List<string>();
+            foreach( var type in assembly.MainModule.Types )
+            {
+                foreach( var met in type.Methods )
+                {
+                    foreach( Instruction ist in met.Body.Instructions )
+                    {
+                        if( ist.OpCode == OpCodes.Ldstr )
+                        {
+                            //get offset
+                            if( ist.Next.OpCode == OpCodes.Call )
+                            {
+                                MethodReference mc = ist.Next.Operand as MethodReference;
+                                if( mc.Name == "WriteLine" )
+                                {
+                                    Strs.Add( ist.Operand.ToString() );
+                                    List<Instruction> temp = new List<Instruction>();
+                                    temp.Add( ist );
+                                    temp.Add( ist.Next );
+                                    InstructionsToRemove.Add( temp );
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            return Strs;
+        }
+
+        public List<List<string>> GetLists( List<string> strs )
+        {
+            //List<List<string>> stList = new List<List<string>>();
+            char[] signs = { ' ', '\n', '\t' };
+
+            foreach( string item in Strs )
+            {
+                List<string> temp = new List<string>();
+                string[] words = item.Split( signs );
+                foreach( string w in words )
+                {
+                    temp.Add( w );
+                }
+                StList.Add( temp );
+            }
+            return StList;
+        }
+
+        public void PopulateStringList( AssemblyDefinition assembly )
+        {
+            Strs = FindString( assembly );
+            StList = GetLists( Strs );
+        }
     }
 }

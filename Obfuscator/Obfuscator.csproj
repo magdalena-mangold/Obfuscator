@@ -72,7 +72,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\DataTransformations.cs" />
     <Compile Include="Data\StringObfuscation\StringGetter.cs" />
+    <Compile Include="Data\StringObfuscation\StringObfuscationClassInjection.cs" />
+    <Compile Include="Data\StringObfuscation\StringObfuscationInstructionCreator.cs" />
     <Compile Include="Layout\HideNames.cs" />
     <Compile Include="Layout\NameBuilder.cs" />
     <Compile Include="Layout\NameObfuscation.cs" />

@@ -1,4 +1,5 @@
 ﻿using Mono.Cecil;
+using Obfuscator.Data;
 using Obfuscator.Layout;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace Obfuscator.Managing
         private AssemblyDefinition assembly;
         private ReportManager reportManager;
         private LayoutTransformations layoutTransformations;
+        private DataTransformations dataTransformations;
 
         public ObfuscatorCore(ReportManager reportManager )
         {
@@ -27,7 +29,7 @@ namespace Obfuscator.Managing
             fileName = File.ReadAllText( "FilePath.txt" );
             var readerParameters = new ReaderParameters { ReadSymbols = true };
             assembly = AssemblyDefinition.ReadAssembly( fileName, readerParameters );
-            reportManager.AddLine( "Odczytywanie pliku..." );
+            reportManager.AddLine( "Reading file..." );
         }
 
         //example - name.exe -> name-obfuscated.exe
@@ -47,12 +49,13 @@ namespace Obfuscator.Managing
             layoutTransformations.RunTransformations( assembly );
         }
 
-        public void RunDataTransformations()
+        public void RunDataTransformations( List<Transformations> ObfuscationsToDo )
         {
-
+            dataTransformations = new DataTransformations( reportManager, ObfuscationsToDo );
+            dataTransformations.RunTransformations( assembly );
         }
 
-        public void RunControlTransformation()
+        public void RunControlTransformation( List<Transformations> ObfuscationsToDo )
         {
 
         }
@@ -60,6 +63,7 @@ namespace Obfuscator.Managing
         public void RunProfiles(List<Transformations> ObfuscationsToDo)
         {
             RunLayoutTransformations( ObfuscationsToDo );
+            RunDataTransformations( ObfuscationsToDo );
         }
 
         public void LaunchTransformations(bool IsProfile, List<Transformations> ObfuscationsToDo)
