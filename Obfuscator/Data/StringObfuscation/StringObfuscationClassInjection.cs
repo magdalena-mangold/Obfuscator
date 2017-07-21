@@ -46,18 +46,18 @@ namespace Obfuscator.Data.StringObfuscation
                         testmethod_ref = assembly.MainModule.Import( m ); break;
                     }
                 }
-
+                 
 
             }
-            MethodReference writeline = assembly.MainModule.Import( typeof( Console ).GetMethod( "WriteLine", new Type[] { typeof( string ) } ) );
-            assembly.MainModule.Import( writeline );
+            //MethodReference writeline = assembly.MainModule.Import( typeof( Console ).GetMethod( "WriteLine", new Type[] { typeof( string ) } ) );
+            //assembly.MainModule.Import( writeline );
 
-            ReplaceInstructions( assembly, testmethod_ref, writeline, worker );
+            ReplaceInstructions( assembly, testmethod_ref, /*writeline,*/ worker );
             reportManager.AddLine( "Method injected." );
         }
 
         public void ReplaceInstructions( AssemblyDefinition assembly, MethodReference metRef,
-    MethodReference writeline, ILProcessor worker )
+    /*MethodReference writeline,*/ ILProcessor worker )
         {
             //List<string> strs = new List<string>();
             int i = 0;
@@ -76,9 +76,9 @@ namespace Obfuscator.Data.StringObfuscation
                                     int index = met.Body.Instructions.IndexOf( item );
                                     met.Body.Instructions.Insert( index, worker.Create( OpCodes.Ldc_I4, i ) );
                                     met.Body.Instructions.Insert( index + 1, worker.Create( OpCodes.Call, metRef ) );
-                                    met.Body.Instructions.Insert( index + 2, worker.Create( OpCodes.Call, writeline ) );
+                                    //met.Body.Instructions.Insert( index + 2, worker.Create( OpCodes.Call, writeline ) );
                                     met.Body.Instructions.Remove( item );
-                                    met.Body.Instructions.Remove( list[1] );
+                                    //met.Body.Instructions.Remove( list[1] );
                                     i++;
                                     break;
                                 }

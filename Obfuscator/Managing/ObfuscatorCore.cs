@@ -62,7 +62,7 @@ namespace Obfuscator.Managing
 
         public void RunProfiles(List<Transformations> ObfuscationsToDo)
         {
-            RunLayoutTransformations( ObfuscationsToDo );
+            //RunLayoutTransformations( ObfuscationsToDo );
             RunDataTransformations( ObfuscationsToDo );
         }
 
