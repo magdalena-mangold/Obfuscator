@@ -52,21 +52,15 @@ namespace Obfuscator.Data.StringObfuscation
                     {
                         if( ist.OpCode == OpCodes.Ldstr )
                         {
-                            //get offset
-                            //if( ist.Next.OpCode == OpCodes.Call )
-                            //{
-                                //MethodReference mc = ist.Next.Operand as MethodReference;
-                                //if( mc.Name == "WriteLine" )
-                                //{
-                                    Strs.Add( ist.Operand.ToString() );
-                                    reportManager.AddLine( "Found String." );
-                                    List<Instruction> temp = new List<Instruction>();
-                                    temp.Add( ist );
-                                    temp.Add( ist.Next );
-                                    InstructionsToRemove.Add( temp );
-                                //}
-
-                            //}
+                            if( ist.Next.OpCode == OpCodes.Call || ist.Next.OpCode == OpCodes.Callvirt )
+                            {
+                                Strs.Add( ist.Operand.ToString() );
+                                reportManager.AddLine( "Found String." );
+                                List<Instruction> temp = new List<Instruction>();
+                                temp.Add( ist );
+                                temp.Add( ist.Next );
+                                InstructionsToRemove.Add( temp );
+                            }
                         }
                     }
                 }
@@ -76,7 +70,6 @@ namespace Obfuscator.Data.StringObfuscation
 
         public List<List<string>> GetLists( List<string> Strs )
         {
-            //List<List<string>> stList = new List<List<string>>();
             char[] signs = { ' ', '\n', '\t' };
 
             foreach( string item in Strs )
