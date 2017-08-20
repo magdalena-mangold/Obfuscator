@@ -13,6 +13,7 @@ namespace Obfuscator.Data
     {
         public ReportManager reportManager;
         private StringObfuscationClassInjection stringObfClInj;
+        private StringEncryption stringEncryption;
 
         private List<Transformations> obfuscations;
         public List<Transformations> Obfuscations
@@ -42,8 +43,10 @@ namespace Obfuscator.Data
             switch(transformations)
             {
                 case Transformations.ProfileEasy:
-                    stringObfClInj = new StringObfuscationClassInjection(reportManager);
-                    stringObfClInj.StringCuts( assembly );
+                    //stringObfClInj = new StringObfuscationClassInjection(reportManager);
+                    //stringObfClInj.StringCuts( assembly );
+                    stringEncryption = new StringEncryption( reportManager );
+                    stringEncryption.EncryptStrings( assembly );
                     break;
             }
         }
@@ -71,6 +74,7 @@ namespace Obfuscator.Data
         {
             Obfuscations.Add( Transformations.ProfileEasy );
             Obfuscations.Add( Transformations.StringSplit );
+            Obfuscations.Add( Transformations.StringSimpleEncryption );
         }
     }
 }

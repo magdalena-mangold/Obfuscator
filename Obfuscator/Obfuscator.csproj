@@ -73,6 +73,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\DataTransformations.cs" />
+    <Compile Include="Data\StringObfuscation\StringEncryption.cs" />
     <Compile Include="Data\StringObfuscation\StringGetter.cs" />
     <Compile Include="Data\StringObfuscation\StringObfuscationClassInjection.cs" />
     <Compile Include="Data\StringObfuscation\StringObfuscationInstructionCreator.cs" />
