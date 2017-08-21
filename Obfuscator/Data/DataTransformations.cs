@@ -27,8 +27,8 @@ namespace Obfuscator.Data
                 case Transformations.ProfileEasy:
                     stringObfClInj = new StringObfuscationClassInjection( reportManager );
                     stringObfClInj.StringCuts( assembly );
-                    //stringEncryption = new StringEncryption( reportManager );
-                    //stringEncryption.EncryptStrings( assembly );
+                    stringEncryption = new StringEncryption( reportManager );
+                    stringEncryption.EncryptStrings( assembly );
                     break;
             }
         }
