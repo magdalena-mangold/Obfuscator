@@ -8,56 +8,19 @@ using System.Threading.Tasks;
 
 namespace Obfuscator.Layout
 {
-    class LayoutTransformations : ITransformations
+    class LayoutTransformations : TransformationClass
     {
-        public ReportManager reportManager;
         private HideNames hideNames;
         private NameObfuscation nameObfuscation;
 
-        private List<Transformations> obfuscations;
-        public List<Transformations> Obfuscations
+        public LayoutTransformations( ReportManager reportManager, List<Transformations> ObfuscationsToDo ) 
+            : base( reportManager, ObfuscationsToDo )
         {
-            get { return obfuscations; }
-            set { obfuscations = value; }
-        }
-
-        private List<Transformations> ownObfuscationsToDo;
-        public List<Transformations> OwnObfuscationsToDo
-        {
-            get { return ownObfuscationsToDo; }
-            set { ownObfuscationsToDo = value; }
-        }
-
-        public LayoutTransformations(ReportManager reportManager, List<Transformations> ObfuscationsToDo)
-        {
-            Obfuscations = new List<Transformations>();
-            OwnObfuscationsToDo = new List<Transformations>();
-            SetObfuscationsList();
-            this.reportManager = reportManager;
-            ScanToDoList( ObfuscationsToDo );
-        }
-
-        public void RunTransformations(AssemblyDefinition assembly)
-        {
-            foreach(var item in OwnObfuscationsToDo)
-            {
-                ChooseTransformations( item, assembly );
-            }
-        }
-
-        public void ScanToDoList( List<Transformations> ObfuscationsToDo )
-        {
-            foreach(var item in Obfuscations)
-            {
-                if(ObfuscationsToDo.Contains(item))
-                {
-                    OwnObfuscationsToDo.Add( item );
-                }
-            }
+            Init( ObfuscationsToDo );
         }
 
         //Setting all possible obfuscations in the main list
-        public void SetObfuscationsList()
+        public override void SetObfuscationsList()
         {
             Obfuscations.Add( Transformations.ProfileEasy );
             Obfuscations.Add( Transformations.HideNames );
@@ -65,7 +28,7 @@ namespace Obfuscator.Layout
             Obfuscations.Add( Transformations.RandomWords );
         }
 
-        public void ChooseTransformations( Transformations transformations,
+        public override void ChooseTransformations( Transformations transformations,
             AssemblyDefinition assembly )
         {
             switch(transformations)

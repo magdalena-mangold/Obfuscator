@@ -9,68 +9,31 @@ using Obfuscator.Managing;
 
 namespace Obfuscator.Data
 {
-    class DataTransformations : ITransformations
+    class DataTransformations : TransformationClass
     {
-        public ReportManager reportManager;
         private StringObfuscationClassInjection stringObfClInj;
         private StringEncryption stringEncryption;
 
-        private List<Transformations> obfuscations;
-        public List<Transformations> Obfuscations
+        public DataTransformations( ReportManager reportManager, List<Transformations> ObfuscationsToDo )
+            : base(reportManager, ObfuscationsToDo)
         {
-            get { return obfuscations; }
-            set { obfuscations = value; }
+            Init( ObfuscationsToDo );
         }
 
-        private List<Transformations> ownObfuscationsToDo;
-        public List<Transformations> OwnObfuscationsToDo
-        {
-            get { return ownObfuscationsToDo; }
-            set { ownObfuscationsToDo = value; }
-        }
-
-        public DataTransformations(ReportManager reportManager, List<Transformations> ObfuscationsToDo)
-        {
-            Obfuscations = new List<Transformations>();
-            OwnObfuscationsToDo = new List<Transformations>();
-            SetObfuscationsList();
-            this.reportManager = reportManager;
-            ScanToDoList( ObfuscationsToDo );
-        }
-
-        public void ChooseTransformations( Transformations transformations, AssemblyDefinition assembly )
+        public override void ChooseTransformations( Transformations transformations, AssemblyDefinition assembly )
         {
             switch(transformations)
             {
                 case Transformations.ProfileEasy:
-                    //stringObfClInj = new StringObfuscationClassInjection(reportManager);
-                    //stringObfClInj.StringCuts( assembly );
-                    stringEncryption = new StringEncryption( reportManager );
-                    stringEncryption.EncryptStrings( assembly );
+                    stringObfClInj = new StringObfuscationClassInjection( reportManager );
+                    stringObfClInj.StringCuts( assembly );
+                    //stringEncryption = new StringEncryption( reportManager );
+                    //stringEncryption.EncryptStrings( assembly );
                     break;
             }
         }
 
-        public void RunTransformations( AssemblyDefinition assembly )
-        {
-            foreach( var item in OwnObfuscationsToDo )
-            {
-                ChooseTransformations( item, assembly );
-            }
-        }
-
-        public void ScanToDoList( List<Transformations> ObfuscationsToDo )
-        {
-            foreach( var item in Obfuscations )
-            {
-                if( ObfuscationsToDo.Contains( item ) )
-                {
-                    OwnObfuscationsToDo.Add( item );
-                }
-            }
-        }
-
-        public void SetObfuscationsList()
+        public override void SetObfuscationsList()
         {
             Obfuscations.Add( Transformations.ProfileEasy );
             Obfuscations.Add( Transformations.StringSplit );
