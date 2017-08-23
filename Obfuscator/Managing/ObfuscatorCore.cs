@@ -62,8 +62,8 @@ namespace Obfuscator.Managing
 
         public void RunProfiles(List<Transformations> ObfuscationsToDo)
         {
-            RunLayoutTransformations( ObfuscationsToDo );
             RunDataTransformations( ObfuscationsToDo );
+            RunLayoutTransformations( ObfuscationsToDo );           
         }
 
         public void LaunchTransformations(bool IsProfile, List<Transformations> ObfuscationsToDo)

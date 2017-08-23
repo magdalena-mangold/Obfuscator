@@ -77,10 +77,10 @@
     <Compile Include="Data\StringObfuscation\StringGetter.cs" />
     <Compile Include="Data\StringObfuscation\StringObfuscationClassInjection.cs" />
     <Compile Include="Data\StringObfuscation\StringObfuscationInstructionCreator.cs" />
-    <Compile Include="Layout\HideNames.cs" />
-    <Compile Include="Layout\NameBuilder.cs" />
-    <Compile Include="Layout\NameObfuscation.cs" />
-    <Compile Include="Layout\RandomStringBuilder.cs" />
+    <Compile Include="Data\Layout\HideNames.cs" />
+    <Compile Include="Data\Layout\NameBuilder.cs" />
+    <Compile Include="Data\Layout\NameObfuscation.cs" />
+    <Compile Include="Data\Layout\RandomStringBuilder.cs" />
     <Compile Include="Managing\ObfuscatorManager.cs" />
     <Compile Include="Transformations.cs" />
     <Page Include="MainWindow.xaml">
@@ -92,7 +92,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TransformationClass.cs" />
-    <Compile Include="Layout\LayoutTransformations.cs" />
+    <Compile Include="Data\Layout\LayoutTransformations.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

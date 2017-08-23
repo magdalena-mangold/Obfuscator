@@ -4,8 +4,6 @@ using Obfuscator.Managing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Obfuscator.Data.StringObfuscation
 {
@@ -59,6 +57,7 @@ namespace Obfuscator.Data.StringObfuscation
             InjectEncrypion( assembly );
             reportManager.AddLine( "Encryption finished." );
         }
+
 
         public void FindStrs( AssemblyDefinition assembly )
         {
