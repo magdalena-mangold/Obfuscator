@@ -42,12 +42,15 @@ namespace Obfuscator.Data.StringObfuscation
             set { inlineStrs = value; }
         }
 
+        private Random rand;
+
         public StringEncryption( ReportManager reportManager )
         {
             IsDone = false;
             this.reportManager = reportManager;
             strs = new List<string>();
             inlineStrs = new List<string>();
+            rand = new Random();
         }
 
         public void EncryptStrings( AssemblyDefinition assembly )
@@ -98,14 +101,15 @@ namespace Obfuscator.Data.StringObfuscation
                                 {
                                     if( i.Operand.ToString() == item )
                                     {
-                                        int rand = new Random( (int)DateTime.Now.Ticks ).Next( 255 );
+                                        //int rand = new Random( (int)DateTime.Now.Ticks ).Next( 255 );
+                                        int randomNumber = rand.Next( 255 );
                                         MethodDefinition newMet = CreateDecryptMethod( assembly, type, nameID );
                                         reportManager.AddLine( "Decryption method injected." );
                                         var worker = met.Body.GetILProcessor();
                                         i.Operand =
-                                        i.Operand.ToString().Select( c => ((char)(c + rand)).ToString() ).Aggregate(
+                                        i.Operand.ToString().Select( c => ((char)(c + randomNumber)).ToString() ).Aggregate(
                                             ( c1, c2 ) => c1 + c2 );
-                                        worker.InsertAfter( i, worker.Create( OpCodes.Ldc_I4, rand ) );
+                                        worker.InsertAfter( i, worker.Create( OpCodes.Ldc_I4, randomNumber ) );
                                         var inst = worker.Create( OpCodes.Call, newMet.Resolve() );
                                         worker.InsertAfter( i.Next, inst );
 
