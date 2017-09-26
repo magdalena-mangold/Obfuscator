@@ -30,6 +30,14 @@ namespace Obfuscator.Data
                     stringEncryption = new StringEncryption( reportManager );
                     stringEncryption.EncryptStrings( assembly );
                     break;
+                case Transformations.StringSplit:
+                    stringObfClInj = new StringObfuscationClassInjection( reportManager );
+                    stringObfClInj.StringCuts( assembly );
+                    break;
+                case Transformations.StringSimpleEncryption:
+                    stringEncryption = new StringEncryption( reportManager );
+                    stringEncryption.EncryptStrings( assembly );
+                    break;
             }
         }
 

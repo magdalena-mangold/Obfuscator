@@ -94,7 +94,7 @@ namespace Obfuscator
                 }
                 else
                 {//When there's a custom choice
-                    obfuscatorManager.SearchSettings( layoutOptions);
+                    obfuscatorManager.SearchSettings( layoutOptions, dataOptions);
                     if(obfuscatorManager.ObfuscationsToDo.Count == 0)
                     {
                         reportManager.AddLine( "Select obfuscating options." );

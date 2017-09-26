@@ -81,7 +81,6 @@ namespace Obfuscator.Data.StringObfuscation
 
         public void InjectEncrypion( AssemblyDefinition assembly )
         {
-            //int rand = new Random((int)DateTime.Now.Ticks).Next(255);
             int j = 0;
             int nameID = 0;
             do

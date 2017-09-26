@@ -74,6 +74,7 @@ namespace Obfuscator.Managing
             }
             else
             {
+                RunDataTransformations( ObfuscationsToDo );
                 RunLayoutTransformations( ObfuscationsToDo );
             }
         }

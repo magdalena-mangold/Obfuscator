@@ -79,7 +79,22 @@ namespace Obfuscator.Managing
 
         public void CheckDataOptions(ListBox dataOptions)
         {
-
+            var options = dataOptions.Items.OfType<CheckBox>();
+            foreach( CheckBox cb in options )
+            {
+                if( cb.IsChecked == true )
+                {
+                    switch( cb.Name )
+                    {
+                        case "stringSplit":
+                            ObfuscationsToDo.Add( Transformations.StringSplit );
+                            break;
+                        case "stringSimpleEncryption":
+                            ObfuscationsToDo.Add( Transformations.StringSimpleEncryption );
+                            break;
+                    }
+                }
+            }
         }
 
         public void CheckControlOptions(ListBox controlOptions)
@@ -88,10 +103,10 @@ namespace Obfuscator.Managing
         }
 
         
-        public void SearchSettings( ListBox layoutOptions)
+        public void SearchSettings( ListBox layoutOptions, ListBox dataOptions)
         {
             CheckLayoutOptions(layoutOptions);
-            //CheckDataOptions(dataOptions);
+            CheckDataOptions(dataOptions);
             //CheckControlOptions(controlOptions);
         }
     }

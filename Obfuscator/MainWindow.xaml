@@ -82,7 +82,23 @@
 
 
             </TabItem>
-            <TabItem Header="Data Transformations" Width="136" Margin="0"/>
+            <TabItem Header="Data Transformations" Width="136" Margin="0">
+                <Grid HorizontalAlignment="Left" Height="420" Margin="10,8,0,0" VerticalAlignment="Top" Width="668">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="73*"/>
+                        <ColumnDefinition Width="94*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="25*"/>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="label5" Content="Choose transformations:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="157" Height="26"/>
+                    <ListBox x:Name="dataOptions" HorizontalAlignment="Left" Height="245" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="272">
+                        <CheckBox x:Name="stringSplit" Content="String Split" Width="102" Height="20"/>
+                        <CheckBox x:Name="stringSimpleEncryption" Content="Simple String Encryption" Height="20" Width="162"/>
+                    </ListBox>
+                </Grid>
+            </TabItem>
             <TabItem Header="Control Transformations" Margin="0,-2,0,0" Height="22" VerticalAlignment="Bottom"/>
         </TabControl>
 
