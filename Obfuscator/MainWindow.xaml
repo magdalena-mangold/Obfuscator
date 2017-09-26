@@ -71,7 +71,7 @@
                         <RadioButton x:Name="randomStrings" Content="Random strings" Width="215" GroupName="layoutRadioButtons" Checked="randomStringsRadio_Checked"/>
                         <RadioButton x:Name="randomWords" Content="Random words" Width="215" GroupName="layoutRadioButtons" Checked="randomWordsRadio_Checked"/>
                     </ListBox>
-                    <RichTextBox x:Name="descriptionWindow" Grid.Column="1" HorizontalAlignment="Left" Height="195" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="231">
+                    <RichTextBox x:Name="layoutDescriptionWindow" Grid.Column="1" HorizontalAlignment="Left" Height="195" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="231">
                         <FlowDocument>
                             <Paragraph>
                                 <Run Text="RichTextBox"/>
@@ -92,11 +92,19 @@
                         <RowDefinition Height="3*"/>
                         <RowDefinition Height="25*"/>
                     </Grid.RowDefinitions>
-                    <Label x:Name="label5" Content="Choose transformations:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="157" Height="26"/>
+                    <Label x:Name="label5" Content="Choose transformations:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="272" Height="26"/>
                     <ListBox x:Name="dataOptions" HorizontalAlignment="Left" Height="245" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="272">
-                        <CheckBox x:Name="stringSplit" Content="String Split" Width="102" Height="20"/>
-                        <CheckBox x:Name="stringSimpleEncryption" Content="Simple String Encryption" Height="20" Width="162"/>
+                        <CheckBox x:Name="stringSplit" Content="String Split" Width="102" Height="20" Checked="stringSplitCB_checked"/>
+                        <CheckBox x:Name="stringSimpleEncryption" Content="Simple String Encryption" Height="20" Width="162" Checked="stringSimpleEncryptionCB_checked"/>
                     </ListBox>
+                    <RichTextBox x:Name="dataDescriptionWindow" Grid.Column="1" HorizontalAlignment="Left" Height="245" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="356">
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run Text="RichTextBox"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                    <Label x:Name="label6" Content="Description" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="356"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Control Transformations" Margin="0,-2,0,0" Height="22" VerticalAlignment="Bottom"/>

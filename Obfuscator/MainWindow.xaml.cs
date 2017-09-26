@@ -32,7 +32,8 @@ namespace Obfuscator
         {
             InitializeComponent();
             reportWindow.Document.Blocks.Clear();
-            descriptionWindow.Document.Blocks.Clear();
+            layoutDescriptionWindow.Document.Blocks.Clear();
+            dataDescriptionWindow.Document.Blocks.Clear();
             Init();
             dragDropPanel.DragEnter += new System.Windows.DragEventHandler( dragDropPanel_DragEnter );
             dragDropPanel.Drop += new System.Windows.DragEventHandler( dragDropPanel_Drop );
@@ -131,20 +132,32 @@ namespace Obfuscator
 
         private void hideNamesRadio_Checked( object sender, RoutedEventArgs e )
         {
-            descriptionWindow.Document.Blocks.Clear();
-            descriptionWindow.AppendText( "All names will be invisible." );
+            layoutDescriptionWindow.Document.Blocks.Clear();
+            layoutDescriptionWindow.AppendText( "All names will be invisible." );
         }
 
         private void randomStringsRadio_Checked( object sender, RoutedEventArgs e )
         {
-            descriptionWindow.Document.Blocks.Clear();
-            descriptionWindow.AppendText( "All names will be changed into a random string of symbols." );
+            layoutDescriptionWindow.Document.Blocks.Clear();
+            layoutDescriptionWindow.AppendText( "All names will be changed into a random string of symbols." );
         }
 
         private void randomWordsRadio_Checked( object sender, RoutedEventArgs e )
         {
-            descriptionWindow.Document.Blocks.Clear();
-            descriptionWindow.AppendText( "All names will be changed into a random words." );
+            layoutDescriptionWindow.Document.Blocks.Clear();
+            layoutDescriptionWindow.AppendText( "All names will be changed into a random words." );
+        }
+
+        private void stringSplitCB_checked( object sender, RoutedEventArgs e )
+        {
+            dataDescriptionWindow.Document.Blocks.Clear();
+            dataDescriptionWindow.AppendText( "Strings in code will be devided and put in new class. They will be replaced by method call from that class." );
+        }
+
+        private void stringSimpleEncryptionCB_checked( object sender, RoutedEventArgs e )
+        {
+            dataDescriptionWindow.Document.Blocks.Clear();
+            dataDescriptionWindow.AppendText( "Strings in code will be encrypted and decryption methods for every string will be added. Advised to use with String Split transformation." );
         }
     }
 }
